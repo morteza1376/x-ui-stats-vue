@@ -31,6 +31,7 @@ import axios from 'axios';
 import { ref } from 'vue';
 import Swal from 'sweetalert2'
 import { useRouter } from 'vue-router';
+import { API_BASE_URL } from '@/config.js';
 
 export default {
     name: 'Index',
@@ -55,7 +56,7 @@ export default {
         function doLogin() {
             loading.value = true;
             // Make a request for a user with a given ID
-            axios.get(`http://127.0.0.1:5000/users/${username.value}`)
+            axios.get(`${API_BASE_URL}/users/${username.value}`)
                 .then(function (response) {
                     // handle success
                     if (response.data.error) {

@@ -134,6 +134,7 @@ import { reactive, ref } from "vue";
 import moment from "jalali-moment";
 import LoadingCard from "@/components/LoadingCard.vue";
 import Swal from "sweetalert2";
+import { API_BASE_URL } from '@/config.js';
 
 export default {
     name: "User",
@@ -145,7 +146,7 @@ export default {
 
         function getUser() {
             loading.value = true;
-            axios.get(`http://127.0.0.1:5000/users/${route.params.username}`)
+            axios.get(`${API_BASE_URL}/users/${route.params.username}`)
                 .then(function (response) {
                     // handle success
                     if (response.data.error) {
